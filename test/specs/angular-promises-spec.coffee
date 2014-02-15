@@ -2,7 +2,9 @@ describe 'Deferred', ->
 
   Deferred = $q = $timeout = null
 
-  beforeEach inject (_Deferred_, _$q_, _$timeout_) ->
+  beforeEach angular.mock.module 'angular-promises'
+
+  beforeEach angular.mock.inject (_Deferred_, _$q_, _$timeout_) ->
     Deferred = _Deferred_
     $q = _$q_
     $timeout = _$timeout_
@@ -10,7 +12,7 @@ describe 'Deferred', ->
   describe 'constructor', ->
 
     it 'creates a $q.defer object', ->
-      spyOn($q, 'defer').andCallThrough()
+      spyOn($q, 'defer').and.callThrough()
       deferred = new Deferred()
       expect($q.defer).toHaveBeenCalled()
       expect(deferred.__deferred__).toBeTruthy()
@@ -36,7 +38,7 @@ describe 'Deferred', ->
 
     it 'returns the deferred object', ->
       promise = deferred.resolve()
-      expect(promise instanceof Deferred).toBeTrue()
+      expect(promise instanceof Deferred).toBeTruthy()
 
   describe 'reject', ->
 
@@ -55,7 +57,7 @@ describe 'Deferred', ->
 
     it 'returns the deferred object', ->
       promise = deferred.reject()
-      expect(promise instanceof Deferred).toBeTrue()
+      expect(promise instanceof Deferred).toBeTruthy()
 
   describe 'notify', ->
 
@@ -74,7 +76,7 @@ describe 'Deferred', ->
 
     it 'returns the deferred object', ->
       promise = deferred.notify()
-      expect(promise instanceof Deferred).toBeTrue()
+      expect(promise instanceof Deferred).toBeTruthy()
 
   describe 'promise', ->
 
@@ -91,7 +93,7 @@ describe 'Deferred', ->
 
     it 'attaches callbacks to all states', ->
       qDefer = promise : {then : jasmine.createSpy(), finally : jasmine.createSpy()}
-      spyOn($q, 'defer').andReturn qDefer
+      spyOn($q, 'defer').and.returnValue qDefer
       new Deferred()
       expect(qDefer.promise.then).toHaveBeenCalledWith(
         jasmine.any(Function), jasmine.any(Function), jasmine.any(Function))

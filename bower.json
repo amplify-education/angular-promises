@@ -1,0 +1,27 @@
+{
+  "name": "angular-promises",
+  "version": "0.0.1",
+  "homepage": "https://github.com/imcnally/angular-promises",
+  "authors": [
+    "Ian McNally <ianmcnally@gmail.com>"
+  ],
+  "description": "A wrapper for Angular's Deferred object",
+  "main": "angular-promises.coffee",
+  "keywords": [
+    "angular",
+    "deferred",
+    "$q",
+    "wrapper"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.2.13",
+    "angular-mocks": "~1.2.13"
+  }
+}

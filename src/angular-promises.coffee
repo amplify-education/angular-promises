@@ -106,7 +106,8 @@ class Deferred
   promise : =>
     @__promise__
 
-@app.factory 'Deferred', [
+angular.module('angular-promises', [])
+.factory 'Deferred', [
   '$q', '$timeout',
   (_$q_, _$timeout_) ->
     $q = _$q_
