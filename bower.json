@@ -5,16 +5,17 @@
   "authors": [
     "Ian McNally <ianmcnally@gmail.com>"
   ],
-  "description": "A wrapper for Angular's Deferred object",
+  "description": "A wrapper for Angular's Deferred and Promise objects",
   "main": "angular-promises.coffee",
   "keywords": [
     "angular",
     "deferred",
+    "defer",
     "$q",
-    "wrapper"
+    "wrapper",
+    "promise"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
