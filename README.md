@@ -45,9 +45,16 @@ Note: like jQuery but unlike $q, more than one callback can be registered on `do
 
 ```javascript
 // Deferred object
-var deferred = new Deferred().resolve().promise();
+var deferred = new Deferred();
 
 // Promise
+var someAsyncFunction = function() {
+  var deferred = new Deferred();
+  setTimeout(function(){
+    deferred.resolve();
+  }, 1000);
+  return deferred.promise();
+};
 var promise = someAsyncFunction();
 promise.done(onDone).fail(onFail).always(thingIAlwaysDo);
 ```
