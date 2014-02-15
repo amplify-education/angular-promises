@@ -1,7 +1,7 @@
 {
   "name": "angular-promises",
   "version": "0.0.1",
-  "description": "A wrapper for Angular's Deferred object",
+  "description": "A wrapper for Angular's Deferred and Promise objects",
   "directories": {
     "test": "test",
     "src": "src"
@@ -17,11 +17,13 @@
     "karma-phantomjs-launcher": "~0.1.2",
     "karma-requirejs": "~0.2.1",
     "karma-script-launcher": "~0.1.0",
-    "requirejs": "~2.1.10"
+    "requirejs": "~2.1.10",
+    "coffee-script": "~1.7.1"
   },
   "private": true,
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
+    "pretest": "./node_modules/coffee-script/bin/coffee -c -o dist src",
     "test": "./node_modules/karma/bin/karma start test/karma.conf.coffee"
   },
   "repository": {
